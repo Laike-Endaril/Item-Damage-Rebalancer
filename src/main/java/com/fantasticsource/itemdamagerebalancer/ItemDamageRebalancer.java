@@ -4,6 +4,7 @@ import com.fantasticsource.mctools.MCTools;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
@@ -64,6 +65,13 @@ public class ItemDamageRebalancer
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onAttack(LivingHurtEvent event)
     {
+        DamageSource dmgSource = event.getSource();
+        Entity source = dmgSource.getTrueSource();
+        Entity immediate = dmgSource.getImmediateSource();
+
+        boolean isMelee = source != null && source == immediate;
+        if (!isMelee) return;
+
         Entity attacker = event.getSource().getImmediateSource();
         if (!(attacker instanceof EntityLivingBase)) attacker = event.getSource().getTrueSource();
         if (attacker instanceof EntityLivingBase)
