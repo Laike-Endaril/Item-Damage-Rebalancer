@@ -1,0 +1,4 @@
+itemdamagerebalancer.config.serverSettings=Server Settings
+
+itemdamagerebalancer.config.itemDamageMultipliers=Item Damage Multipliers
+itemdamagerebalancer.config.itemDamageMultipliers.tooltip=FILLSCREEN FIXNEWLINES Items and attack multipliers for them\nSyntax is...\n\ndomain:item:meta > nbtkey1 = nbtvalue1 & nbtkey2 = nbtvalue2, multiplier\n\neg...\n\ndiamond_axe, 0.5\n\ntetra:duplex_tool_modular > duplex/sickle_left_material & duplex/butt_right_material, 3\n \n
