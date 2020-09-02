@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ItemDamageRebalancer.MODID, name = ItemDamageRebalancer.NAME, version = ItemDamageRebalancer.VERSION)
+@Mod(modid = ItemDamageRebalancer.MODID, name = ItemDamageRebalancer.NAME, version = ItemDamageRebalancer.VERSION, dependencies = "required-after:fantasticlib@[1.12.2.036,)")
 public class ItemDamageRebalancer
 {
     public static final String MODID = "itemdamagerebalancer";
