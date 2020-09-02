@@ -22,7 +22,7 @@ public class ItemDamageRebalancer
 {
     public static final String MODID = "itemdamagerebalancer";
     public static final String NAME = "Item Damage Rebalancer";
-    public static final String VERSION = "1.12.2.000";
+    public static final String VERSION = "1.12.2.001";
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event)
