@@ -1,0 +1,16 @@
+[
+{
+  "modid": "itemdamagerebalancer",
+  "name": "Item Damage Rebalancer",
+  "description": "Allows you to alter the attack damage of items via item filters and multipliers",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Laike_Endaril"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
