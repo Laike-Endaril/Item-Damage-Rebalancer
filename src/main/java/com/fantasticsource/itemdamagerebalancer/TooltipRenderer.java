@@ -1,7 +1,6 @@
 package com.fantasticsource.itemdamagerebalancer;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -19,24 +18,20 @@ public class TooltipRenderer
 
         String attackDamageString = I18n.translateToLocalFormatted("attribute.name.generic.attackDamage");
 
-        ItemStack stack = event.getItemStack();
-        if (stack.getItem().getHarvestLevel(stack, "axe", null, null) >= 0)
+        List<String> tooltip = event.getToolTip();
+        for (int i = 0; i < tooltip.size(); i++)
         {
-            List<String> tooltip = event.getToolTip();
-            for (int i = 0; i < tooltip.size(); i++)
+            String line = tooltip.get(i);
+            if (line.contains(attackDamageString))
             {
-                String line = tooltip.get(i);
-                if (line.contains(attackDamageString))
+                try
                 {
-                    try
-                    {
-                        double damage = Double.parseDouble(line.replace(attackDamageString, "").trim()) * ItemDamageMultiplierData.getMultiplier(stack);
-                        tooltip.set(i, line.replaceFirst("[0-9.]+", "" + damage));
-                    }
-                    catch (NumberFormatException e)
-                    {
-                        continue;
-                    }
+                    double damage = Double.parseDouble(line.replace(attackDamageString, "").trim()) * ItemDamageMultiplierData.getMultiplier(event.getItemStack());
+                    tooltip.set(i, line.replaceFirst("[0-9.]+", "" + damage));
+                }
+                catch (NumberFormatException e)
+                {
+                    continue;
                 }
             }
         }
